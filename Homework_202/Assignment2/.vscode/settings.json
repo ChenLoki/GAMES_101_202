@@ -1,0 +1,9 @@
+{
+    "dotnet.defaultSolution": "disable",
+    "files.associations": {
+        "*.hazel": "yaml",
+        "vector": "cpp",
+        "iostream": "cpp",
+        "alignedvector3": "cpp"
+    }
+}

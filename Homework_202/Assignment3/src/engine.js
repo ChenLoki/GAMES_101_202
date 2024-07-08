@@ -16,7 +16,7 @@ GAMES202Main();
 function GAMES202Main() {
 	// Init canvas
 	const canvas = document.querySelector('#glcanvas');
-	canvas.width = window.screen.width;
+	canvas.width  = window.screen.width;
 	canvas.height = window.screen.height;
 	// Init gl
 	// gl = canvas.getContext('webgl');

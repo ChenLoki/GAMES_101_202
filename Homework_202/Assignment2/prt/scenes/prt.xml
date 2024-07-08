@@ -6,6 +6,8 @@
 
     <!-- Render the visible surface normals -->
     <integrator type="prt">
+		<!-- <string name="type" value="unshadowed" /> -->
+		<!-- <string name="type" value="shadowed" /> -->
 		<string name="type" value="interreflection" />
 		<integer name="bounce" value="2" />
 		<integer name="PRTSampleCount" value="100" />

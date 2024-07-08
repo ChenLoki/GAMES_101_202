@@ -616,8 +616,10 @@ double EvalSH(int l, int m, const Eigen::Vector3d& dir) {
   }
 }
 
-std::unique_ptr<std::vector<double>> ProjectFunction(
-    int order, const SphericalFunction& func, int sample_count) {
+std::unique_ptr<std::vector<double>> ProjectFunction( int order, 
+                                                      const SphericalFunction& func, 
+                                                      int sample_count) 
+{
   CHECK(order >= 0, "Order must be at least zero.");
   CHECK(sample_count > 0, "Sample count must be at least one.");
 
@@ -631,8 +633,10 @@ std::unique_ptr<std::vector<double>> ProjectFunction(
   std::random_device rd;
   std::mt19937 gen(rd());
   std::uniform_real_distribution<> rng(0.0, 1.0);
-  for (int t = 0; t < sample_side; t++) {
-    for (int p = 0; p < sample_side; p++) {
+  for (int t = 0; t < sample_side; t++) 
+  {
+    for (int p = 0; p < sample_side; p++) 
+    {
       double alpha = (t + rng(gen)) / sample_side;
       double beta = (p + rng(gen)) / sample_side;
       // See http://www.bogotobogo.com/Algorithms/uniform_distribution_sphere.php
@@ -644,8 +648,10 @@ std::unique_ptr<std::vector<double>> ProjectFunction(
 
       // evaluate the SH basis functions up to band O, scale them by the
       // function's value and accumulate them over all generated samples
-      for (int l = 0; l <= order; l++) {
-        for (int m = -l; m <= l; m++) {
+      for (int l = 0; l <= order; l++) 
+      {
+        for (int m = -l; m <= l; m++) 
+        {
           double sh = EvalSH(l, m, phi, theta);
           (*coeffs)[GetIndex(l, m)] += func_value * sh;
         }
@@ -657,7 +663,8 @@ std::unique_ptr<std::vector<double>> ProjectFunction(
   // 4pi/sample_side^2. 4pi for the surface area of a unit sphere, and
   // 1/sample_side^2 for the number of samples drawn uniformly.
   double weight = 4.0 * M_PI / (sample_side * sample_side);
-  for (unsigned int i = 0; i < coeffs->size(); i++) {
+  for (unsigned int i = 0; i < coeffs->size(); i++) 
+  {
      (*coeffs)[i] *= weight;
   }
 
