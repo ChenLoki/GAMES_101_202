@@ -30,7 +30,7 @@ function GAMES202Main() {
     // console.log('MAX_DRAW_BUFFERS_WEBGL: ' + maxdb);
 
 	// Edit Start
-	windowWidth = window.screen.width;
+	windowWidth  = window.screen.width;
 	windowHeight = window.screen.height;
 
 	gl = canvas.getContext('webgl2');
@@ -117,11 +117,12 @@ function GAMES202Main() {
 	// mipMapLevel = 5;
 	mipMapLevel = 1 + Math.floor(Math.log2(Math.max(window.screen.width, window.screen.height)));
 
-	let currentWidth = window.screen.width;
+	let currentWidth  = window.screen.width;
 	let currentHeight = window.screen.height;
-	let depthTexture = camera.fbo.textures[1];
+	let depthTexture  = camera.fbo.textures[1];
 
-	for (let i = 0; i < mipMapLevel; i++) {
+	for (let i = 0; i < mipMapLevel; i++) 
+	{
 		let lastWidth = currentWidth;
 		let lastHeight = currentHeight;
 

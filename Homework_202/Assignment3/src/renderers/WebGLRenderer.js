@@ -71,18 +71,21 @@ class WebGLRenderer {
 
         // Depth Mipmap pass
         // Edit Start
-        for (let lv = 0; lv < this.depthFBOs.length && depthMeshRender !=null; lv++) {
+        for (let lv = 0; lv < this.depthFBOs.length && depthMeshRender !=null; lv++) 
+        {
             gl.useProgram(depthMeshRender.shader.program.glShaderProgram);
             gl.bindFramebuffer(gl.FRAMEBUFFER, this.depthFBOs[lv]);
             gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-            let updatedParamters = {
+            let updatedParamters = 
+            {
                 "uLastMipLevel": lv - 1,
                 "uLastMipSize": [this.depthFBOs[lv].lastWidth, this.depthFBOs[lv].lastHeight, 0],
                 "uCurLevel": lv,
             };
 
-            if(lv != 0){
+            if(lv != 0)
+            {
                 updatedParamters.uDepthMipMap = this.depthFBOs[lv - 1].textures[0];
             }
 
@@ -103,10 +106,13 @@ class WebGLRenderer {
         // Edit End
 
         // Camera pass
-        for (let i = 0; i < this.meshes.length; i++) {
+        for (let i = 0; i < this.meshes.length; i++) 
+        {
             // Edit Start
-            for(let lv = 0; lv < mipMapLevel; lv++){
-                if(this.depthFBOs.length > lv){
+            for(let lv = 0; lv < mipMapLevel; lv++)
+            {
+                if(this.depthFBOs.length > lv)
+                {
                     updatedParamters['uDepthTexture' + '[' + lv + ']'] = this.depthFBOs[lv].textures[0];
                 }
             }

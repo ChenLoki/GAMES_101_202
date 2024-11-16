@@ -1,17 +1,21 @@
 #include "image.h"
 
-Buffer2D<float> ReadFloatImage(const std::string &filename) {
+Buffer2D<float> ReadFloatImage(const std::string &filename)
+{
     int width, height;
     float *buffer = ReadImage(filename, width, height, 1);
     CHECK(buffer != nullptr);
+
     return Buffer2D<float>(buffer, width, height);
 }
 
 Buffer2D<float> ReadFloatImageLayer(const std::string &filename,
-                                    const std::string &layername) {
+                                    const std::string &layername)
+{
     int width, height;
     float *buffer = ReadImageLayer(filename, layername, width, height, 1);
     CHECK(buffer != nullptr);
+
     return Buffer2D<float>(buffer, width, height);
 }
 
